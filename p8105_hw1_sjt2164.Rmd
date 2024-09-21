@@ -62,7 +62,7 @@ The code below shows how the data frame `question2_df` is constructed. This data
 question2_df = 
     tibble(
       sample_value = rnorm(10),
-      value_greater_than_0 = ifelse(sample_value > 0, "Yes", "No"),
+      value_greater_than_0 = ifelse(sample_value > 0, TRUE, FALSE),
       nycity_names = c("Nyc", "Buffalo", "Rochester", "Yonkers", "Syracuse", "Albany", "New Rochelle", "Schenectady", "Utica", "Mount_Vernon"),
       top_industries = factor(c("entertainment", "healthcare", "technology", "healthcare", "healthcare", "healthcare", "technology", "technology", "technology", "healthcare"))
     )
@@ -77,9 +77,4 @@ Using the `pull` function to take the mean of the variables in the `question2_df
 * `nycity_names` = `r mean(pull(question2_df,nycity_names))`
 * `top_industries` = `r mean(pull(question2_df,top_industries))`
 
-As shown above, the mean of `sample_value` can be calculated. However, the mean cannot be calculated for the other 3 variables.
-
-**Converting Variable Types**
-```{r converting variables, eval = FALSE}
-
-```
+As shown above, the mean of `sample_value` and `value_greater_than_0` can be calculated. However, the mean cannot be calculated for the remaining 2 variables. It is also important to note that, in this case, a mean can be calculted for the logical vector because in Rstudio, TRUE = 1 and FALSE is 0. Had this variable been set up differently where TRUE is now "Yes" and FALSE is now "No", then the mean calculations would not work.
