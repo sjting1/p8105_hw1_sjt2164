@@ -32,9 +32,19 @@ Body mass is measured in grams and ranges from `r min(pull(penguins,body_mass_g)
 
 ## Penguins Scatterplot
 
-_Using the `Penguins` dataset, the code below generates a scatterplot with `flipper_length_mm` as the y-variable and `bill_length_mm` as the x-variable. Each penguin species is represented by a different color as depicted in the key of the scatterplot._
+_Note: The code, messages, and any warning notices are hidden using `echo = FALSE`, `message = FALSE`, and `warning = FALSE`. Only the scatterplot is shown below._
 
-```{r plot}
+Using the `Penguins` dataset, a scatterplot is generated below using `ggplot() + geom_point()`. The distribution of penguin species is shown bellow with `flipper_length_mm` as the y-variable and `bill_length_mm` as the x-variable. Each penguin species is represented by a different color as depicted in the key of the scatterplot.
+
+Since 2 penguins had "NA" values for both `flipper_length_mm` and `bill_length_mm`, they are excluded. Thus, the scatterplot contains data for a total of 342 penguins. 
+
+The scatterplot is exported using `ggsave`.
+
+**Scatterplot (n = 342)**
+
+```{r plot, echo = FALSE, message = FALSE, warning = FALSE}
 ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
 #There is a warning message: "removed 2 rows containing missing values or values outside the scale range (`geom_point()`).
+
+ggsave("penguins_scatterplot.pdf")
 ```
