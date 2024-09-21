@@ -2,3 +2,21 @@
 title: "sjt2164 Homework 1"
 output: github_document
 ---
+
+### Question 1
+
+Question 1 uses the `tidyverse` library and the `Penguins` dataset. The codes for loading the library and the dataset are hidden using `include = FALSE` for easier reading.
+
+```{r setup, include = FALSE}
+library(tidyverse)
+```
+
+```{r data, include = FALSE}
+data("penguins", package = "palmerpenguins")
+```
+
+```{r summary, include = FALSE}
+summary(penguins)
+```
+
+The `Penguins` dataset (`r ncol(penguins)` columns x `r nrow(penguins)` rows), contains data on different penguin species. 
