@@ -5,7 +5,7 @@ output: github_document
 
 ### Question 1
 
-Question 1 uses the `tidyverse` library and the `Penguins` dataset. The codes for loading the library and the dataset are hidden using `include = FALSE` for easier reading.
+_This question uses the `tidyverse` library and the `Penguins` dataset. The codes for loading the library and the dataset are hidden using `include = FALSE` for easier reading._
 
 ```{r setup, include = FALSE}
 library(tidyverse)
@@ -19,15 +19,17 @@ data("penguins", package = "palmerpenguins")
 summary(penguins) #overview of dataset.Tells us how many of each variable contains "NA".
 ```
 
-The `Penguins` dataset (`r ncol(penguins)` columns x `r nrow(penguins)` rows), contains data on `r nrow(penguins)` penguins. Data collected on these penguins include:
+**Summary of Dataset**
 
-* `species`(factor variable): `r levels(pull(penguins,species))` 
-* `island`(factor variable): `r levels(pull(penguins,island))`
-* `bill_length_mm`(double variable) in milimeteres
-* `bill_depth_mm` (double variable) in milimeteres
-* `flipper_length_mm` (integer variable) in milimeteres
-* `body_mass_g` (integer variable) in grams
-* `sex` (factor variable): `r levels(pull(penguins,sex))`
-* `year` (factor variable): `r min(pull(penguins,year))` - `r max(pull(penguins,year))`
+The `Penguins` dataset (`r ncol(penguins)` columns x `r nrow(penguins)` rows), contains data on `r nrow(penguins)` penguins with the following variables:
 
-The mean flipper length is `r round(mean(pull(penguins,flipper_length_mm),na.rm= TRUE), digits=2)` mm.
+* **Factor variables** include `species` (`r levels(pull(penguins,species))`), `island` (`r levels(pull(penguins,island))`), `year` (`r min(pull(penguins,year))` - `r max(pull(penguins,year))`), and `sex` (`r levels(pull(penguins,sex))`). 
+* **Numeric variables** include doubles (`bill_length_mm` and `bill_depth_mm`) and integers (`body_mass_g` and `flipper_length_mm`). 
+
+Using the `summary(penguins)` code, we also see that there are several "NA" values in the dataset. Each of the numberic variables listed above had 2 NA values. 11 of the 344 penguins had NA values for `sex`.
+
+Body mass is measured in grams and ranges from `r min(pull(penguins,body_mass_g), na.rm=TRUE)`g to `r max(pull(penguins,body_mass_g), na.rm=TRUE)`g with a mean of `r round(mean(pull(penguins,body_mass_g),na.rm= TRUE), digits=2)`g. Bill length (min: `r min(pull(penguins,bill_length_mm), na.rm=TRUE)`, max: `r max(pull(penguins,bill_length_mm), na.rm=TRUE)`, mean: `r round(mean(pull(penguins,bill_length_mm),na.rm= TRUE), digits=2)`), bill depth (min: `r min(pull(penguins,bill_depth_mm), na.rm=TRUE)`, max: `r max(pull(penguins,bill_depth_mm), na.rm=TRUE)`, mean: `r round(mean(pull(penguins,bill_depth_mm),na.rm= TRUE), digits=2)`), and flipper length (min: `r min(pull(penguins,flipper_length_mm), na.rm=TRUE)`, max: `r max(pull(penguins,flipper_length_mm), na.rm=TRUE)`, mean: `r round(mean(pull(penguins,flipper_length_mm),na.rm= TRUE), digits=2)`) are all measured in millimeters.
+
+## Scatterplot Based on Dataset
+
+
