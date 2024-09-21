@@ -3,7 +3,7 @@ title: "sjt2164 Homework 1"
 output: github_document
 ---
 
-### Question 1
+## Question 1
 
 _This question uses the `tidyverse` library and the `Penguins` dataset. The codes for loading the library and the dataset are hidden using `include = FALSE`._
 
@@ -30,7 +30,7 @@ Using the `summary(penguins)` code, we also see that there are several "NA" valu
 
 Body mass is measured in grams and ranges from `r min(pull(penguins,body_mass_g), na.rm=TRUE)`g to `r max(pull(penguins,body_mass_g), na.rm=TRUE)`g with a mean of `r round(mean(pull(penguins,body_mass_g),na.rm= TRUE), digits=2)`g. Bill length (min: `r min(pull(penguins,bill_length_mm), na.rm=TRUE)`, max: `r max(pull(penguins,bill_length_mm), na.rm=TRUE)`, mean: `r round(mean(pull(penguins,bill_length_mm),na.rm= TRUE), digits=2)`), bill depth (min: `r min(pull(penguins,bill_depth_mm), na.rm=TRUE)`, max: `r max(pull(penguins,bill_depth_mm), na.rm=TRUE)`, mean: `r round(mean(pull(penguins,bill_depth_mm),na.rm= TRUE), digits=2)`), and flipper length (min: `r min(pull(penguins,flipper_length_mm), na.rm=TRUE)`, max: `r max(pull(penguins,flipper_length_mm), na.rm=TRUE)`, mean: `r round(mean(pull(penguins,flipper_length_mm),na.rm= TRUE), digits=2)`) are all measured in millimeters.
 
-## Penguins Scatterplot
+**Penguins Scatterplot**
 
 _Note: The code, messages, and any warning notices are hidden using `echo = FALSE`, `message = FALSE`, and `warning = FALSE`. Only the scatterplot is shown below._
 
@@ -47,4 +47,23 @@ ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)
 #There is a warning message: "removed 2 rows containing missing values or values outside the scale range (`geom_point()`).
 
 ggsave("penguins_scatterplot.pdf")
+```
+
+## Question 2
+
+The code below shows how the data frame `question2_df` is constructed. This data frame consists of the following variables:
+
+* `sample_value` = a random sample of size 10 from a standard Normal distribution
+* `value_greater_than_0` = a logical vector that indicates whether elements of `sample_value` are greater than 0
+* `nycity_names` = a character vector of length 10
+* `top_industries` = a factor vector of length 10 containing 3 levels (`entertainment`, `healthcare`, and `technology`). 
+
+```{r dataframe setup}
+question2_df = 
+    tibble(
+      sample_value = rnorm(10),
+      value_greater_than_0 = ifelse(sample_value > 0, "Yes", "No"),
+      nycity_names = c("Nyc", "Buffalo", "Rochester", "Yonkers", "Syracuse", "Albany", "New Rochelle", "Schenectady", "Utica", "Mount_Vernon"),
+      top_industries = factor(c("entertainment", "healthcare", "technology", "healthcare", "healthcare", "healthcare", "technology", "technology", "technology", "healthcare"))
+    )
 ```
