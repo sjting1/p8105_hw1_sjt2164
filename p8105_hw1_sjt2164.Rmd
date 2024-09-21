@@ -67,3 +67,14 @@ question2_df =
       top_industries = factor(c("entertainment", "healthcare", "technology", "healthcare", "healthcare", "healthcare", "technology", "technology", "technology", "healthcare"))
     )
 ```
+
+**Taking the Mean**
+
+Using the `pull` function to take the mean of the variables in the `question2_df` data frame, we get:
+
+* `sample_value` = `r mean(pull(question2_df,sample_value))`
+* `value_greater_than_0` = `r mean(pull(question2_df,value_greater_than_0))`
+* `nycity_names` = `r mean(pull(question2_df,nycity_names))`
+* `top_industries` = `r mean(pull(question2_df,top_industries))`
+
+As shown above, the mean of `sample_value` can be calculated. However, the mean cannot be calculated for the other 3 variables.
