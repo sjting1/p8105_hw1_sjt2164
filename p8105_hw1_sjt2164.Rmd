@@ -15,7 +15,7 @@ library(tidyverse)
 data("penguins", package = "palmerpenguins")
 ```
 
-```{r, include = FALSE}
+```{r summary, include = FALSE}
 summary(penguins) #overview of dataset.Tells us how many of each variable contains "NA".
 ```
 
@@ -42,7 +42,7 @@ The scatterplot is exported using `ggsave`.
 
 **Scatterplot (n = 342)**
 
-```{r plot, echo = FALSE, message = FALSE, warning = FALSE}
+```{r scatterplot, echo = FALSE, message = FALSE, warning = FALSE}
 ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
 #There is a warning message: "removed 2 rows containing missing values or values outside the scale range (`geom_point()`).
 
@@ -78,3 +78,8 @@ Using the `pull` function to take the mean of the variables in the `question2_df
 * `top_industries` = `r mean(pull(question2_df,top_industries))`
 
 As shown above, the mean of `sample_value` can be calculated. However, the mean cannot be calculated for the other 3 variables.
+
+**Converting Variable Types**
+```{r converting variables, eval = FALSE}
+
+```
