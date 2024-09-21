@@ -15,8 +15,19 @@ library(tidyverse)
 data("penguins", package = "palmerpenguins")
 ```
 
-```{r summary, include = FALSE}
-summary(penguins)
+```{r, include = FALSE}
+summary(penguins) #overview of dataset.Tells us how many of each variable contains "NA".
 ```
 
-The `Penguins` dataset (`r ncol(penguins)` columns x `r nrow(penguins)` rows), contains data on different penguin species. 
+The `Penguins` dataset (`r ncol(penguins)` columns x `r nrow(penguins)` rows), contains data on `r nrow(penguins)` penguins. Data collected on these penguins include:
+
+* `species`(factor variable): `r levels(pull(penguins,species))` 
+* `island`(factor variable): `r levels(pull(penguins,island))`
+* `bill_length_mm`(double variable) in milimeteres
+* `bill_depth_mm` (double variable) in milimeteres
+* `flipper_length_mm` (integer variable) in milimeteres
+* `body_mass_g` (integer variable) in grams
+* `sex` (factor variable): `r levels(pull(penguins,sex))`
+* `year` (factor variable): `r min(pull(penguins,year))` - `r max(pull(penguins,year))`
+
+The mean flipper length is `r round(mean(pull(penguins,flipper_length_mm),na.rm= TRUE), digits=2)` mm.
